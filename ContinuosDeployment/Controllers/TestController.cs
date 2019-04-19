@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ContinuosDeployment.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContinuosDeployment.Controllers
@@ -21,7 +22,8 @@ namespace ContinuosDeployment.Controllers
 
         // GET: api/Test/go
         [HttpGet]
-        public IEnumerable<string[]> Go()
+        [Route("go")]
+        public IEnumerable<Test> Go()
         {
             var v1 = new string[]
             {
@@ -35,9 +37,13 @@ namespace ContinuosDeployment.Controllers
                 "Pizza hut is the best",
             };
 
-            var list = new List<string[]> { v1, v2 };
+            var list = new List<Test>
+            {
+                new Test { MyProperty = v1 },
+                new Test { MyProperty = v2 }
+            };
 
-            return list;
+            return list.ToArray();
         }
 
         // GET: api/Test/5
