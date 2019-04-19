@@ -26,6 +26,8 @@ namespace ContinuosDeployment
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRouting();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -58,7 +60,6 @@ namespace ContinuosDeployment
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Apis Test v1");
                 c.RoutePrefix = string.Empty;
             });
-
 
             app.UseHttpsRedirection();
             app.UseMvc();
