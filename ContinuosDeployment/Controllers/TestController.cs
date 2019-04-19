@@ -19,6 +19,27 @@ namespace ContinuosDeployment.Controllers
             };
         }
 
+        // GET: api/Test/go
+        [HttpGet]
+        public IEnumerable<string[]> Go()
+        {
+            var v1 = new string[]
+            {
+                "Say my name",
+                "I give up on you",
+                "Tell me something more"
+            };
+
+            var v2 = new string[]
+            {
+                "Pizza hut is the best",
+            };
+
+            var list = new List<string[]> { v1, v2 };
+
+            return list;
+        }
+
         // GET: api/Test/5
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
