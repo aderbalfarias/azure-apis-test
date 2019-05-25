@@ -1,4 +1,7 @@
+using ContinuosDeployment.Controllers;
+using ContinuosDeployment.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace ContinuousIntegrationTest
 {
@@ -6,11 +9,24 @@ namespace ContinuousIntegrationTest
     public class BasicTest
     {
         [TestMethod]
-        public void CallApi()
+        public void ValidateModel()
         {
-            var x = 1;
+            var model = new Test();
 
-            Assert.AreEqual(x, 1);
+            model.MyProperty = new string[] { "Test1", "Test2" };
+
+            Assert.AreEqual(model.MyProperty.Count(), 2);
+        }
+
+        [TestMethod]
+        public void ValidateController()
+        {
+            var controller = new TestController();
+
+            var go = controller.Go();
+
+            Assert.IsNotNull(go);
+            Assert.AreEqual(go.Count(), 2);
         }
     }
 }

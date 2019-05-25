@@ -16,7 +16,8 @@ namespace ContinuosDeployment.Controllers
             {
                 "Aderbal Farias",
                 "Test App",
-                "Wow"
+                "Wow",
+                "Let's enjoy"
             };
         }
 
@@ -31,6 +32,8 @@ namespace ContinuosDeployment.Controllers
                 "I give up on you",
                 "Tell me something more"
             };
+            
+            //var v4 = v1[1..2];
 
             var v2 = new string[]
             {
@@ -40,7 +43,8 @@ namespace ContinuosDeployment.Controllers
             var list = new List<Test>
             {
                 new Test { MyProperty = v1 },
-                new Test { MyProperty = v2 }
+                new Test { MyProperty = v2 },
+                //new Test { MyProperty = v4 }
             };
 
             return list.ToArray();
